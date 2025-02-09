@@ -195,4 +195,11 @@ label {
     width: 100%;
 }
     
+.question{
+    color: black;
+}
+
+.label{
+    color: black;
+}
 }
