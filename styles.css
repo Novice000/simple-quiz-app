@@ -151,8 +151,8 @@ h1{
     padding: 10px;
     font-size: 20px;
     width: 100px;
-    border: none;
-    color: #fff;
+    border: 1px black;
+    color: black;
     border-radius: 15px;
     cursor: pointer;
     margin-top: 10px;

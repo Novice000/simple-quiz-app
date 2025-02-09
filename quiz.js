@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionCount = document.querySelector(".question-count");
     const inputContainer = document.querySelector(".input-container");
     const choicesContainer = document.querySelector(".choices");
+    const restartButton = document.querySelector(".restart-button")
     
     const initialContent = document.querySelector(".main-container").innerHTML;
     
@@ -60,8 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Starts the quiz by hiding the input and start button, and showing the first question
     function startQuiz() {
         choicesContainer.style.display = "flex";
+        const numberOfQuestionsValue = document.querySelector("#number-of-questions").value 
         // checks if the question input is below the length of the questions array and returns the length otherwise
-        number_of_questions = document.querySelector("#number-of-questions").value <= questions.length - 1 ? document.querySelector("#number-of-questions").value: questions.length - 1 ;
+        number_of_questions = numberOfQuestionsValue <= questions.length - 1 && numberOfQuestionsValue > 0 ? document.querySelector("#number-of-questions").value: questions.length ;
         questionContainer.style.display = "block";
         startButton.style.display = "none";
         nextButton.style.display = "block";
@@ -100,11 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
             restartButton.style.display = "block";
         }
     }
+
+    // Resets the quiz state
+    function resetQuiz() {
+        location.reload();
+    }
     
+
     console.log("DOM loaded")
     // Listens for the start button to be clicked and starts the quiz
     startButton.addEventListener("click", startQuiz);
     // Listens for the next button to be clicked and shows the next question or the final score
     nextButton.addEventListener("click", nextQuestion)
+
+    restartButton.addEventListener("click", resetQuiz)
 });
 
